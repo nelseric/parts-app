@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   def spark
     respond_to do |format|
       format.html do
-        pp params
+        Rails.logger.debug params
         render json: {result: "OK"}
       end
       format.json { render json: {}}
