@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
 
-  inheritance_column = :_type_disabled
+  self.inheritance_column = :_type_disabled
 
 end
