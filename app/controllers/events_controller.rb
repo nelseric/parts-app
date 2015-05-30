@@ -23,6 +23,9 @@ class EventsController < ApplicationController
 
   def spark
     respond_to do |format|
+      format.html do
+        render json: {result: "OK"}
+      end
       format.json { render json: {}}
     end
   end
