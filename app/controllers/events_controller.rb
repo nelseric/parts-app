@@ -22,13 +22,10 @@ class EventsController < ApplicationController
   end
 
   def spark
-    respond_to do |format|
-      format.html do
-        Rails.logger.debug params
-        render json: {result: "OK"}
-      end
-      format.json { render json: {}}
-    end
+    Rails.logger.debug params
+    Event.create name: "Button #{params["data"]} Pressed.", type: "Button"
+
+    render json: {result: "OK"}
   end
 
   # POST /events

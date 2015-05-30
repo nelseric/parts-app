@@ -1,0 +1,43 @@
+doctype html
+html lang="en"
+  head
+    title
+      - if content_for? :title
+        = content_for :title
+      - else
+        | Smart Parts
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags    
+  body
+    nav.navbar.navbar-default
+      .container
+        .navbar-header
+          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main-collapse"
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="/" Smart Parts
+        /.navbar-header
+        .collapse.navbar-collapse id="navbar-main-collapse"
+          ul.nav.navbar-nav
+            li.active class="active"
+              a href="/"
+                |Events
+                span class="sr-only" (current)
+          ul.nav.navbar-nav.navbar-right
+          /.navbar-right
+        /.collaps.navbar-collapse
+          
+    .container
+      = flash_messages
+  - if content_for?(:no_container)
+    == yield :no_container
+  - else
+    .container
+      == yield
