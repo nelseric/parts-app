@@ -6,7 +6,6 @@ table.table.table-striped
       th Time
       th Name
       th Type
-/      th Actions
 
   tbody
     - @events.each do |event|
@@ -14,14 +13,9 @@ table.table.table-striped
         td 
           span title=(event.created_at)
             = time_ago_in_words event.created_at
+            |  ago
         td = event.name
         td = event.type
-/        td
-/          = link_to 'Show', event
-/          |  
-/          = link_to 'Edit', edit_event_path(event)
-/          |  
-/          = link_to 'Destroy', event, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
