@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :events
-  resources :events
+  resources :events do
+    collection do
+      post "spark"    
+    end
+  end
 
   # You can have the root of your site routed with "root"
   root 'events#index'
